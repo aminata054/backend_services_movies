@@ -12,7 +12,10 @@ exports.create = function (req, res) {
     const movie = new Movie({
         title: req.body.title,
         synopsis: req.body.synopsis,
-        // registered: req.body.registered ? req.body.registered : false,
+        realisateur: req.body.realisateur,
+        genre: req.body.genre,
+        annee_sortie: req.body.annee_sortie,
+
     });
 
     // Save Movie in the database
@@ -37,7 +40,7 @@ exports.findAll = (req, res) => {
         : {};
     Movie.find(condition)
         .then(data => {
-            res.send({message: "Veuillez ajouter au moins un film pour voir la liste des films disponibles "});
+            res.send(data);
         })
         .catch(err => {
             res.status(500).send({

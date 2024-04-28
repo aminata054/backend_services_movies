@@ -3,6 +3,9 @@ module.exports = mongoose => {
       {
         title: String,
         synopsis: String,
+        realisateur: String,
+        genre: String,
+        annee_sortie: Date,
        
       },
       { timestamps: true }
